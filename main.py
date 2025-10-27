@@ -36,8 +36,6 @@ def reset_world():
     game_world.add_object(grass_2, 2)
 
 
-
-
 def update_world():
     game_world.update()
 
