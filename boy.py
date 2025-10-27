@@ -1,6 +1,7 @@
 from pico2d import load_image, get_time
 from sdl2 import SDL_KEYDOWN, SDLK_SPACE, SDLK_RIGHT, SDL_KEYUP, SDLK_LEFT
-
+from ball import Ball
+import game_world
 from state_machine import StateMachine
 
 
@@ -105,11 +106,6 @@ class Run:
             self.boy.image.clip_draw(self.boy.frame * 100, 0, 100, 100, self.boy.x, self.boy.y)
 
 
-
-
-
-
-
 class Boy:
     def __init__(self):
         self.x, self.y = 400, 90
@@ -141,6 +137,8 @@ class Boy:
         self.state_machine.draw()
 
     def fire_ball(self):
+        ball = Ball(self.x, self.y, self.face_dir * 10)
+        game_world.add_object(ball)
         if self.face_dir == -1:
             print('FIRE BALL TO LEFT')
         elif self.face_dir == 1:
