@@ -3,7 +3,7 @@
 # layer 0: Background Objects
 # layer 1: Foreground Objects
 
-world = [[], []]
+world = [[], [], []]
 
 def add_object(o, depth = 0):
     world[depth].append(o)
